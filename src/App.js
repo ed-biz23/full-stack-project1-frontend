@@ -8,6 +8,7 @@ import NavigationBar from "./components/NavigationBar";
 import Home from "./pages/Home";
 import Campuses from "./pages/Campuses";
 import Students from "./pages/Students";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             </Switch>
           </Container>
         </div>
+        <Footer />
       </Router>
     </Fragment>
   );
