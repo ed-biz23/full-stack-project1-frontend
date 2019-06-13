@@ -4,5 +4,7 @@
 }
 
 .footer {
-    text-align: center;
+	text-align: center;
+	margin-top:25%;
+	position: fixed;
 }
