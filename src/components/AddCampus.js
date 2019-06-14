@@ -38,9 +38,11 @@ class AddCampus extends React.Component {
               color="primary"
               onClick={() => {
                 this.toggle();
-                this.props.handleAddCampusBtn(
-                  document.getElementById("add-campus").value
-                );
+                if (document.getElementById("add-campus").value !== "") {
+                  this.props.handleAddCampusBtn(
+                    document.getElementById("add-campus").value
+                  );
+                }
               }}
             >
               Add Campus

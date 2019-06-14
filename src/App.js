@@ -8,6 +8,7 @@ import NavigationBar from "./components/NavigationBar";
 import Home from "./pages/Home";
 import Campuses from "./pages/Campuses";
 import Students from "./pages/Students";
+import EditCampus from "./pages/EditCampus";
 
 function App() {
   return (
@@ -18,8 +19,9 @@ function App() {
           <Container>
             <Switch>
               <Route exact path="/" component={Home} />
-              <Route path="/campuses" component={Campuses} />
+              <Route exact path="/campuses" component={Campuses} />
               <Route path="/students" component={Students} />
+              <Route path="/campuses/edit-campus" component={EditCampus} />
             </Switch>
           </Container>
         </div>
