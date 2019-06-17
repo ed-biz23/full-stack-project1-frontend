@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/full-stack-project1-frontend/static/css/main.2355f87d.chunk.css",
+    "main.js": "/full-stack-project1-frontend/static/js/main.1837dddd.chunk.js",
+    "main.js.map": "/full-stack-project1-frontend/static/js/main.1837dddd.chunk.js.map",
+    "runtime~main.js": "/full-stack-project1-frontend/static/js/runtime~main.bd6babf9.js",
+    "runtime~main.js.map": "/full-stack-project1-frontend/static/js/runtime~main.bd6babf9.js.map",
+    "static/css/2.266e55a5.chunk.css": "/full-stack-project1-frontend/static/css/2.266e55a5.chunk.css",
+    "static/js/2.26b69e89.chunk.js": "/full-stack-project1-frontend/static/js/2.26b69e89.chunk.js",
+    "static/js/2.26b69e89.chunk.js.map": "/full-stack-project1-frontend/static/js/2.26b69e89.chunk.js.map",
+    "index.html": "/full-stack-project1-frontend/index.html",
+    "precache-manifest.74ca0cd6a2957c58ca27a7354932ecd8.js": "/full-stack-project1-frontend/precache-manifest.74ca0cd6a2957c58ca27a7354932ecd8.js",
+    "service-worker.js": "/full-stack-project1-frontend/service-worker.js",
+    "static/css/2.266e55a5.chunk.css.map": "/full-stack-project1-frontend/static/css/2.266e55a5.chunk.css.map",
+    "static/css/main.2355f87d.chunk.css.map": "/full-stack-project1-frontend/static/css/main.2355f87d.chunk.css.map",
+    "static/media/books.png": "/full-stack-project1-frontend/static/media/books.f44453ff.png",
+    "static/media/Jumbotron.css": "/full-stack-project1-frontend/static/media/open-books.5aa8ddbb.jpg"
+  }
+}
