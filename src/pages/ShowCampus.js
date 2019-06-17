@@ -56,7 +56,7 @@ const ShowCampus = props => {
   return (
     <div style={{ paddingTop: "5rem", paddingBottom: "5rem" }}>
       <Row>
-        <Col xs="auto">
+        <Col sm="12" md={{ size: 6, offset: 3 }}>
           <img
             src={campus.imageUrl}
             alt={campus.name}
