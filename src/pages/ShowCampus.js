@@ -80,7 +80,7 @@ const ShowCampus = props => {
         <Col xs="6" style={{ paddingTop: "1rem" }}>
           <Link
             to={{
-              pathname: "/edit-campus",
+              pathname: "/campuses/edit-campus",
               state: { campus: campus }
             }}
           >
