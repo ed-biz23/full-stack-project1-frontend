@@ -9,6 +9,7 @@ import {
 import "./css/App.css";
 
 import NavigationBar from "./components/NavigationBar";
+import Footer from "./components/Footer";
 
 import Home from "./pages/Home";
 import Campuses from "./pages/Campuses";
@@ -65,6 +66,7 @@ function App() {
             </Switch>
           </Container>
         </div>
+        <Footer />
       </Router>
     </Fragment>
   );
