@@ -11,16 +11,19 @@ class AddCampus extends React.Component {
   }
 
   fetchPostNewCampusAction = async name => {
-    const data = await fetch("/api/campuses", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        name: name.toUpperCase()
-      })
-    });
+    const data = await fetch(
+      "https://secret-waters-79188.herokuapp.com/api/campuses",
+      {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          name: name.toUpperCase()
+        })
+      }
+    );
     const dataJSON = await data.json();
     return this.props.dispatch({
       type: "ADD_CAMPUS_DATA",

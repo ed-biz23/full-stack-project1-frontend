@@ -22,7 +22,9 @@ function App() {
   const { state, dispatch } = useContext(Store);
 
   const fetchCampusesDataAction = async () => {
-    const data = await fetch("/api/campuses");
+    const data = await fetch(
+      "https://secret-waters-79188.herokuapp.com/api/campuses"
+    );
     const dataJSON = await data.json();
     return dispatch({
       type: "FETCH_CAMPUSES_DATA",
@@ -31,7 +33,9 @@ function App() {
   };
 
   const fetchStudentsDataAction = async () => {
-    const data = await fetch("/api/students");
+    const data = await fetch(
+      "https://secret-waters-79188.herokuapp.com/api/students"
+    );
     const dataJSON = await data.json();
     return dispatch({
       type: "FETCH_STUDENTS_DATA",

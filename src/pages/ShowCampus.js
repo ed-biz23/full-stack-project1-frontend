@@ -10,13 +10,17 @@ const ShowCampus = props => {
   const [campus, setCampus] = useState("");
 
   const fetchCampusId = async () => {
-    const data = await fetch("/api/campuses/" + id);
+    const data = await fetch(
+      "https://secret-waters-79188.herokuapp.com/api/campuses/" + id
+    );
     const dataJSON = await data.json();
     setCampus(dataJSON);
   };
 
   const fetchCampusesDataAction = async () => {
-    const data = await fetch("/api/campuses");
+    const data = await fetch(
+      "https://secret-waters-79188.herokuapp.com/api/campuses"
+    );
     const dataJSON = await data.json();
     return dispatch({
       type: "FETCH_CAMPUSES_DATA",
@@ -25,9 +29,12 @@ const ShowCampus = props => {
   };
 
   const fetchDeleteCampus = async id => {
-    await fetch("/api/campuses/" + id, {
-      method: "DELETE"
-    });
+    await fetch(
+      "https://secret-waters-79188.herokuapp.com/api/campuses/" + id,
+      {
+        method: "DELETE"
+      }
+    );
     setTimeout(() => {
       fetchCampusesDataAction();
     }, 500);

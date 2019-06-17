@@ -8,7 +8,9 @@ const CampusCardView = ({ campus }) => {
   const { dispatch } = useContext(Store);
 
   const fetchCampusesDataAction = async () => {
-    const data = await fetch("/api/campuses");
+    const data = await fetch(
+      "https://secret-waters-79188.herokuapp.com/api/campuses"
+    );
     const dataJSON = await data.json();
     return dispatch({
       type: "FETCH_CAMPUSES_DATA",
@@ -17,9 +19,12 @@ const CampusCardView = ({ campus }) => {
   };
 
   const fetchDeleteCampus = async id => {
-    await fetch("/api/campuses/" + id, {
-      method: "DELETE"
-    });
+    await fetch(
+      "https://secret-waters-79188.herokuapp.com/api/campuses/" + id,
+      {
+        method: "DELETE"
+      }
+    );
     setTimeout(() => {
       fetchCampusesDataAction();
     }, 500);

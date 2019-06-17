@@ -12,7 +12,9 @@ const EditCampus = props => {
   const [description, setDescription] = useState(campus.description);
 
   const fetchCampusesDataAction = async () => {
-    const data = await fetch("/api/campuses");
+    const data = await fetch(
+      "https://secret-waters-79188.herokuapp.com/api/campuses"
+    );
     const dataJSON = await data.json();
     return dispatch({
       type: "FETCH_CAMPUSES_DATA",
@@ -103,19 +105,23 @@ const EditCampus = props => {
             onClick={e => {
               e.preventDefault();
               const fetchUpdateCampus = async () => {
-                await fetch("/api/campuses/" + campus.id, {
-                  method: "PUT",
-                  headers: {
-                    Accept: "application/json",
-                    "Content-Type": "application/json"
-                  },
-                  body: JSON.stringify({
-                    name,
-                    imageUrl,
-                    address,
-                    description
-                  })
-                });
+                await fetch(
+                  "https://secret-waters-79188.herokuapp.com/api/campuses/" +
+                    campus.id,
+                  {
+                    method: "PUT",
+                    headers: {
+                      Accept: "application/json",
+                      "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                      name,
+                      imageUrl,
+                      address,
+                      description
+                    })
+                  }
+                );
               };
               fetchUpdateCampus();
               setTimeout(() => {
