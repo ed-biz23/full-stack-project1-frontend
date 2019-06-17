@@ -21,15 +21,15 @@ class NavigationBar extends Component {
     return (
       <div>
         <Navbar fixed="top" expand="md">
-          <Link to={`${process.env.PUBLIC_URL}/`}>Home</Link>
+          <Link to="/">Home</Link>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <Link to={`${process.env.PUBLIC_URL}/campuses`}>Campuses</Link>
+                <Link to="/campuses">Campuses</Link>
               </NavItem>
               <NavItem>
-                <Link to={`${process.env.PUBLIC_URL}/students`}>Students</Link>
+                <Link to="/students">Students</Link>
               </NavItem>
             </Nav>
           </Collapse>

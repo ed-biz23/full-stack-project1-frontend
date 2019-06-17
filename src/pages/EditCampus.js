@@ -126,7 +126,7 @@ const EditCampus = props => {
               fetchUpdateCampus();
               setTimeout(() => {
                 fetchCampusesDataAction();
-                props.history.push(`${process.env.PUBLIC_URL}/campuses`);
+                props.history.push("/campuses");
               }, 500);
             }}
           >
