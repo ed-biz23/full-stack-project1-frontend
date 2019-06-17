@@ -23,8 +23,8 @@ function App() {
               <Route path="/students" component={Students} />
             </Switch>
           </Container>
-          <Footer />
         </div>
+        <Footer />
       </Router>
     </Fragment>
   );
