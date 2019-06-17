@@ -50,21 +50,38 @@ function App() {
 
   return (
     <Fragment>
-      <Router>
+      <Router basename={"/subdirectory"}>
         <NavigationBar />
         <div className="App">
           <Container>
             <Switch>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/campuses" component={Campuses} />
-              <Route path="/students" component={Students} />
+              <Route
+                exact
+                path={`${process.env.PUBLIC_URL}/`}
+                component={Home}
+              />
+              <Route
+                exact
+                path={`${process.env.PUBLIC_URL}/campuses`}
+                component={Campuses}
+              />
+              <Route
+                path={`${process.env.PUBLIC_URL}/students`}
+                component={Students}
+              />
               {state.campusesData.length !== 0 ? (
                 <Fragment>
-                  <Route path="/campuses/edit-campus" component={EditCampus} />
-                  <Route path="/campuses/show-campus" component={ShowCampus} />
+                  <Route
+                    path={`${process.env.PUBLIC_URL}/edit-campus`}
+                    component={EditCampus}
+                  />
+                  <Route
+                    path={`${process.env.PUBLIC_URL}/show-campus`}
+                    component={ShowCampus}
+                  />
                 </Fragment>
               ) : (
-                <Redirect to="/campuses" />
+                <Redirect to={`${process.env.PUBLIC_URL}/campuses`} />
               )}
             </Switch>
           </Container>
