@@ -7,9 +7,26 @@ class AddCampus extends React.Component {
     this.state = {
       modal: false
     };
-
     this.toggle = this.toggle.bind(this);
   }
+
+  fetchPostNewCampusAction = async name => {
+    const data = await fetch("/api/campuses", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        name: name.toUpperCase()
+      })
+    });
+    const dataJSON = await data.json();
+    return this.props.dispatch({
+      type: "ADD_CAMPUS_DATA",
+      payload: dataJSON
+    });
+  };
 
   toggle() {
     this.setState(prevState => ({
@@ -39,7 +56,7 @@ class AddCampus extends React.Component {
               onClick={() => {
                 this.toggle();
                 if (document.getElementById("add-campus").value !== "") {
-                  this.props.handleAddCampusBtn(
+                  this.fetchPostNewCampusAction(
                     document.getElementById("add-campus").value
                   );
                 }

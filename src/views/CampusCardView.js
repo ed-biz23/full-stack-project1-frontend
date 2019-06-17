@@ -1,23 +1,67 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { Col, Card, CardImg, CardBody, CardTitle, Button } from "reactstrap";
-import image from "../assets/campus-placeholder.svg";
+import { Col, Card, CardImg, CardBody, CardText, Button } from "reactstrap";
 
-const CampusCardView = ({ campus, index, deleteBtn }) => {
+import { Store } from "../Store";
+
+const CampusCardView = ({ campus }) => {
+  const { dispatch } = useContext(Store);
+
+  const fetchCampusesDataAction = async () => {
+    const data = await fetch("/api/campuses");
+    const dataJSON = await data.json();
+    return dispatch({
+      type: "FETCH_CAMPUSES_DATA",
+      payload: dataJSON
+    });
+  };
+
+  const fetchDeleteCampus = async id => {
+    await fetch("/api/campuses/" + id, {
+      method: "DELETE"
+    });
+    setTimeout(() => {
+      fetchCampusesDataAction();
+    }, 500);
+  };
+
   return (
     <Col sm="3">
       <Card
         style={{
           background: "white",
           color: "grey",
-          marginTop: "0.75rem"
+          marginTop: "0.75rem",
+          minHeight: "24rem"
         }}
       >
-        <CardImg top width="100%" src={image} alt="placeholder" />
+        <CardImg top width="100%" src={campus.imageUrl} alt="placeholder" />
         <CardBody>
-          <CardTitle>{campus.name.toUpperCase()}</CardTitle>
-          <CardBody>{campus.students.length} Students</CardBody>
-          <Link to="/campuses/edit-campus">
+          <Link
+            to={{
+              pathname: "/campuses/show-campus",
+              state: { id: campus.id }
+            }}
+          >
+            <CardText
+              style={{
+                color: "grey",
+                textDecoration: "underline"
+              }}
+            >
+              {campus.name.toUpperCase()}
+            </CardText>
+          </Link>
+          <CardText>
+            {campus.students === undefined ? 0 : campus.students.length}{" "}
+            Students
+          </CardText>
+          <Link
+            to={{
+              pathname: "/campuses/edit-campus",
+              state: { campus: campus }
+            }}
+          >
             <Button color="primary" size="xs">
               Edit
             </Button>
@@ -27,7 +71,7 @@ const CampusCardView = ({ campus, index, deleteBtn }) => {
             color="danger"
             size="xs"
             onClick={() => {
-              deleteBtn(index);
+              fetchDeleteCampus(campus.id);
             }}
           >
             Delete
